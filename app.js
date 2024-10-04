@@ -75,6 +75,7 @@ const Body = () => {
       <h1>This is shit</h1>
     )
   }
+  // console.log(List);
 
   if (dummyList.length === 0) {
     return (
@@ -121,11 +122,6 @@ const Body = () => {
         {dummyList.map((res) => (
           <Link key={res.info.id} to={"/restro/"+res.info.id}>
            
-
-
-
-
-
           <Cards
             key={res.info.id}
             name={res.info.name}
