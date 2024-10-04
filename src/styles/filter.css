@@ -1,0 +1,20 @@
+.filter-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    padding: 10px 20px; /* Optional padding */
+    font-size: 16px; /* Optional font size */
+    margin: 2rem auto;
+    border-radius: .45rem;
+    cursor: pointer;
+}
+
+
+button:hover {
+    transform: scale(1.09);
+    transition: transform 0.12s ease-in-out;
+    background-color: rgba(249, 141, 0, 0.47);
+    /* transition: transform 0.4s ease-in-out; */
+}

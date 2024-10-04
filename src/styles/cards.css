@@ -1,0 +1,105 @@
+.card {
+    cursor: pointer;
+    width: 15.5rem;
+    margin: .4rem 1rem 2rem 1rem;
+    display: inline-block;
+    /* border: 2px solid black; */
+    /* font-family: 'Arial Narrow', Arial, sans-serif */
+}
+
+.card img {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 1.2rem;
+    /* box-shadow: inset 0px 6rem 6rem rgba(0, 0, 0, 0.9); */
+    z-index: 999;
+}
+.card:hover {
+    transform: scale(.95);
+    transition: transform 0.12s ease-in-out;
+}
+
+.cards-con {
+display: inline-block;
+}
+
+.data {
+    padding: .5rem 0 1rem .8rem;
+} 
+
+h2 {
+    font-size: 1.45rem;
+    margin-bottom: .3rem;
+    /* border: 2px solid black; */
+}
+
+h3 {
+    font-weight: 600;
+    display: inline-block;
+}
+
+.rating {
+    margin-right: .6rem;
+}
+
+h4 {
+    font-weight: 300;
+}
+
+.img-con {
+    position: relative;
+    overflow: hidden;
+}
+
+.offer {
+    position: absolute;
+    bottom: 10px;
+    left: 10px; 
+    z-index: 1; 
+    color: white; 
+    font-size: 24px; 
+}
+
+.offer h3 {
+    font-weight: bold;
+    font-size: 1.6rem;
+    font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* search ki css  */
+.srch button {
+    padding: .55rem 2rem;
+    /* margin: 2rem; */
+    border-radius: .3rem;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.74);
+    cursor: pointer;
+}
+
+.srch button:hover {
+    transform: scale(1.09);
+    transition: transform 0.12s ease-in-out;
+    background-color: rgb(249, 141, 0);
+    /* transition: transform 0.4s ease-in-out; */
+}
+
+.srch input {
+    margin: 0 1rem 0 2rem;
+    border-radius: .3rem;
+    padding: .55rem 3rem .55rem .8rem;
+}
+
+.srch{
+    margin: 2rem auto;
+}
+
+.mn {
+    width: 100%;
+    display: flex;
+    justify-content:flex-end;
+}
+
+*{
+    color: black;
+}

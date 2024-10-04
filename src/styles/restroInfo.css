@@ -1,0 +1,111 @@
+.restro-info {
+  padding: 20px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  /* margin-bottom: 20px; */
+  margin-bottom: 6rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center the container on the page */
+  max-width: 600px; /* Set a max width for the centered content */
+  margin-left: auto;
+  margin-right: auto; /* Horizontally center the restro-info block */
+}
+
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #ff6f00;
+  margin-bottom: 10px;
+}
+
+.details {
+  text-align: left; /* Ensure the text inside is left-aligned */
+  margin-left: 20px; /* Add left indentation */
+}
+
+.details h3 {
+  margin: 10px 0;
+  font-weight: bold;
+  display: block;
+}
+
+.details h3 span {
+  font-weight: normal;
+  color: #333;
+}
+
+.d {
+  margin-left: 20px; /* Further indentation for the inner content */
+}
+
+  
+  /* Styling for Restaurant List Cards */
+  .restro-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    /* width: 10rem; */
+  }
+  
+  .restro-card {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 48rem;
+  }
+  
+  .restro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .h4 {
+    font-size: 1.5em;
+    color: #ff6f00;
+    font-weight: bold;
+  }
+  
+  .data h5 {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #555;
+  }
+  .data {
+    width: 35rem;
+    /* border: 2px solid black; */
+  }
+  .img img {
+    height: 9rem;
+    width: 9rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .img img:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  /* Media Query for Responsive Design */
+  @media (max-width: 768px) {
+    .restro-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .img img {
+      max-width: 100%;
+    }
+  }
+  
