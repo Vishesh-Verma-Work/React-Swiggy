@@ -2,29 +2,33 @@ import "../styles/accordionData.css";
 import AccordionInfo from "./AccordionInfo";
 import { useState } from "react";
 
-const AccordionData = ({ data }) => {
-    const [toggle,setToggle] = useState(false)
-//   console.log(toggle);
-const toggleCase = ()=>{
-    toggle ? setToggle(false) : setToggle(true)
+const AccordionData = ({ data,show,setShowIndex }) => {
+// if want parent AbortController, code down there
+// const handelClick = ()=>{
+//     setShowIndex();
+// }
+const [toggle,setToggle] = useState(false);
+const handelClick = ()=>{
+    setToggle(!toggle);
 }
+
+
   return (
     <>
       <div className="acc">
-        <div className="acc-header" onClick={toggleCase}>
+        <div className="acc-header" onClick={handelClick} >
           <h3>
             {data.title}
             <b>({data.itemCards.length})</b>
           </h3>
           <h3>⬆️</h3>
         </div>
-        {
-            toggle ?  <div className="acc-data">
-            {
-                <AccordionInfo data={data.itemCards} />
+        <div className="acc-data">
+            {   toggle ? 
+                <AccordionInfo data={data.itemCards} /> : ""
             }
-            </div> : ""
-        }
+            </div>
+        
        
       </div>
     </>

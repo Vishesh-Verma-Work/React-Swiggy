@@ -1,4 +1,4 @@
-import React, { createElement, useState, useEffect, lazy,Suspense } from "react";
+import React, { createElement, useState, useEffect, lazy,Suspense,useContext } from "react";
 import {createBrowserRouter, RouterProvider, Outlet,Link } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import Header from "./src/Components/Header";
@@ -8,6 +8,7 @@ import Line from "./src/Components/Line";
 import useOnlineStatus from "./src/utils/Hooks/useOnlineStatus";
 import Error from "./src/Components/Error";
 import Contact from "./src/Components/Contact";
+import ChangeUserName from "./src/Components/ChangeUserName";
 import Order from "./src/Components/Order";
 import ShimmerCard from "./src/Components/ShimmerCard";
 import UserClass from './src/Components/UserClass';
@@ -20,6 +21,8 @@ import "./src/styles/userClass.css";
 import "./src/styles/shimmerCard.css";
 import "./src/styles/restroInfo.css";
 
+import userContext from "./src/utils/contextData/userContext";
+
 const Grocery = lazy(() => import("./src/Components/Grocery"));
 
 const Body = () => {
@@ -28,8 +31,6 @@ const Body = () => {
   const [data, setData] = useState("");
   // this is an higher order function 
   // const RestroPromotedCard = LabeledCard(Cards);
-
-
   useEffect(() => {
     fetchData();
     //functional compo mai cleanup fun nahi hota, like in class based comp componentWillUnmount, hence we clean like this
@@ -41,6 +42,20 @@ const Body = () => {
       console.log("Timmer ended");
     }
   }, []);
+
+  const [authName, setAuthName] = useState("default user");
+
+  useEffect(()=>{
+    //auth check se data user name aaega
+    const data =  {
+      name : "Lucifer",
+    }
+    setAuthName(data.name);
+  },[])
+
+  
+
+
 
   const fetchData = async () => {
     const data = await fetch(
@@ -70,12 +85,13 @@ const Body = () => {
   }
 
   const checkStatus = useOnlineStatus;
+  
   if(checkStatus === false){
     return(
-      <h1>This is shit</h1>
+      <h1>This is on</h1>
     )
   }
-  // console.log(List);
+
 
   if (dummyList.length === 0) {
     return (
@@ -91,8 +107,9 @@ const Body = () => {
   
   return (
     <>
+    <userContext.Provider value={{logedInUser : authName, setAuthName}}>
       <Header />
-      {console.log(dummyList)}
+      {/* {console.log(dummyList)} */}
       {/* <Outlet/> */}
       
       <div className="mn">
@@ -101,7 +118,6 @@ const Body = () => {
         <button className="btn" onClick={()=>{flterBySearch()}}>Search</button>
         </div>
       </div>  
-
 
       <Line />
 
@@ -118,6 +134,7 @@ const Body = () => {
       </div>
 
       <Line />
+
       <div className="cards-container">
         {dummyList.map((res) => (
           <Link key={res.info.id} to={"/restro/"+res.info.id}>
@@ -136,6 +153,9 @@ const Body = () => {
         </Link>
         ))}
       </div>
+
+      <ChangeUserName/>
+      </userContext.Provider>
     </>
   );
 };

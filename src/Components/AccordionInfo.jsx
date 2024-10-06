@@ -1,7 +1,7 @@
 import "../styles/accordionInfo.css"
 import { img as IMG } from "../utils/Hard Coded Data/URL";
 function AccordionInfo({data}) {
-    console.log(data)
+    // console.log(data)
   return (
     <div>
       {

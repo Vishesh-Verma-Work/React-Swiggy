@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
+import userContext from "../utils/contextData/userContext";
 import { IMG_URL as img } from "../utils/Hard Coded Data/URL";
 const Cards =({name,avgRating,cloudinaryImageId,time,cuisines,header,subHead,areaName})=>{
 
@@ -15,6 +16,7 @@ const Cards =({name,avgRating,cloudinaryImageId,time,cuisines,header,subHead,are
         return cuisines;
     }
 
+    const {logedInUser} = useContext(userContext);
     return(
         <>
         <div className="cards-con">
@@ -31,6 +33,7 @@ const Cards =({name,avgRating,cloudinaryImageId,time,cuisines,header,subHead,are
                 <h3>{time}</h3>
                 <h4>{cusExceed(cuisines )}</h4>
                 <h4>{areaName}</h4>
+                <h4>{logedInUser}</h4>
             </div>
         </div>
         </div>

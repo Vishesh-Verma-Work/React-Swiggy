@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import userContext from "../utils/contextData/userContext";
 import { Link } from "react-router-dom";
 const Header= ()=> {
     const [btn,setBtn] = useState("LogIn");
     const ToggleTo = ()=>{
         btn === "LogIn" ? setBtn("SignUp") : setBtn("LogIn");
     }
+    const {logedInUser} = useContext(userContext)
     return(
         <>
         <div className="header">
@@ -19,6 +21,7 @@ const Header= ()=> {
                     <li><a href=""><Link to={"/order"}>Orders</Link></a></li>
                     <li><a href=""><Link to={"/grocery"}>Grocery</Link></a></li>
                     <li><a href=""><Link to={"/user"}>User</Link></a></li>
+                    <li><a href="">{logedInUser}</a></li>
                     <li><img src="https://endlessicons.com/wp-content/uploads/2012/11/shopping-cart-icon-614x460.png" alt="xxx" /></li>
                     <li><button onClick={()=>{ToggleTo()}}>{btn}</button></li>
                 </ul>

@@ -11,6 +11,7 @@ const RestroInfo = () => {
   const [list, setList] = useState([]);
   const { resID } = useParams();
   const [accordion, setAccordion] = useState([]);
+  const [showIndex, setShowIndex] = useState(null);
 
   const fetchData = async () => {
     try {
@@ -55,6 +56,7 @@ const RestroInfo = () => {
   return (
     <>
       <Header />
+
       <div className="restro-info">
         <h1 className="title">{res.name}</h1>
         <div className="details">
@@ -81,12 +83,12 @@ const RestroInfo = () => {
         </div>
       </div>
 
-    
       <div className="acc-cont">
         {accordion.map((data, index) => {
           return (
             <>
-            <AccordionData key={index} data={data?.card?.card}/>
+            {/* controled component */}
+            <AccordionData key={index} data={data?.card?.card} show={index === showIndex ? true : false} setShowIndex={()=> setShowIndex(index)}/>
             </>
           );
         })}
