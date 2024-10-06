@@ -10,10 +10,7 @@ const RestroInfo = () => {
   const [res, setRes] = useState({});
   const [list, setList] = useState([]);
   const { resID } = useParams();
-  const [toggle, setToggle] = useState(false);
   const [accordion, setAccordion] = useState([]);
-  const [accordionToggle, setAccordionToggle] = useState(false);
-  const [accordionDataSend, setAccordionDataSend] = useState([])
 
   const fetchData = async () => {
     try {
@@ -45,11 +42,6 @@ const RestroInfo = () => {
     }
   };
 
-
-
-  const funCall = () => {
-    setToggle(!toggle);
-  };
 
   useEffect(() => {
     fetchData();
@@ -89,55 +81,10 @@ const RestroInfo = () => {
         </div>
       </div>
 
-      <div className="bar-cont" onClick={() => funCall()}>
-        <div className="bar">
-          <h2>Recommended</h2>
-          <span>⬇️</span>
-        </div>
-      </div>
-
-      {toggle ? (
-        <div className="restro-list">
-          {list?.map((item) => (
-            <div key={item?.card?.info?.id} className="restro-card">
-              <div className="data">
-                <h4 className="h4">{item?.card?.info?.name}</h4>
-                <h5>
-                  {item?.card?.info?.description
-                    ? item.card.info.description.substring(0, 145) + "..."
-                    : ""}
-                </h5>
-                <h5>
-                  ₹
-                  {item?.card?.info?.defaultPrice / 100 ||
-                    item?.card?.info?.finalPrice / 100 ||
-                    item?.card?.info?.price / 100}
-                </h5>
-                <h5>Is Veg: {item?.card?.info?.isVeg ? "Yes" : "No"}</h5>
-              </div>
-              <div className="img">
-                <img
-                  src={imgg + item?.card?.info?.imageId}
-                  alt={item?.card?.info?.name}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        ""
-      )}
-
+    
       <div className="acc-cont">
         {accordion.map((data, index) => {
           return (
-            // <>
-            //   <div key={index} className="acc" onClick={()=>{setAccordionDataSend(data?.card?.card?.itemCards)}}>
-            //     <h3>{data?.card?.card?.title}</h3>
-            //     <h3>⬇️</h3>
-            //   </div>
-            //     <AccordionData data={accordionDataSend}/>
-            // </>
             <>
             <AccordionData key={index} data={data?.card?.card}/>
             </>
