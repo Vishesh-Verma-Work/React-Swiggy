@@ -123,6 +123,7 @@
     justify-content: space-around;
     align-items: center;
     width: 40%;
+    box-shadow:  0 .01rem .01rem black;
   }
 
 
@@ -133,5 +134,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* box-shadow: 0rem 2rem 2px black; */
   width: 100%;
 } 
+
+.acc-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem auto;
+  border: 2px solid red;
+}

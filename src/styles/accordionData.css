@@ -1,0 +1,13 @@
+.acc {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 1rem;
+    width: 70%;
+    cursor: pointer;
+  }
+  
+  .acc h3 {
+    display:  inline-block;
+  }
