@@ -1,6 +1,11 @@
+// react imports
 import React, { createElement, useState, useEffect, lazy,Suspense,useContext } from "react";
+
+// react router imports
 import {createBrowserRouter, RouterProvider, Outlet,Link } from "react-router-dom";
 import ReactDOM from "react-dom/client";
+
+// components imports
 import Header from "./src/Components/Header";
 import Cards  from "./src/Components/Cards";
 import Offer from "./src/Components/Offer";
@@ -13,6 +18,8 @@ import Order from "./src/Components/Order";
 import ShimmerCard from "./src/Components/ShimmerCard";
 import UserClass from './src/Components/UserClass';
 import RestroInfo from "./src/Components/RestroInfo";
+
+// css imports
 import "./src/styles/header.css";
 import "./src/styles/cards.css";
 import "./src/styles/appJS.css";
@@ -21,7 +28,12 @@ import "./src/styles/userClass.css";
 import "./src/styles/shimmerCard.css";
 import "./src/styles/restroInfo.css";
 
+// context api imports
 import userContext from "./src/utils/contextData/userContext";
+
+// redux imports 
+import { Provider } from "react-redux";
+import appStore from "./src/utils/ReduxStore/appStore";
 
 const Grocery = lazy(() => import("./src/Components/Grocery"));
 
@@ -107,7 +119,7 @@ const Body = () => {
   
   return (
     <>
-
+    <Provider store={appStore}>
     <userContext.Provider value={{logedInUser : authName, setAuthName}}>
       <Header />
       {/* <Outlet/> */}
@@ -156,7 +168,7 @@ const Body = () => {
 
       <ChangeUserName/>
       </userContext.Provider>
-
+      </Provider>
     </>
   );
 };
