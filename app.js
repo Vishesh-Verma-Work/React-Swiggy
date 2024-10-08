@@ -107,9 +107,9 @@ const Body = () => {
   
   return (
     <>
+
     <userContext.Provider value={{logedInUser : authName, setAuthName}}>
       <Header />
-      {/* {console.log(dummyList)} */}
       {/* <Outlet/> */}
       
       <div className="mn">
@@ -156,6 +156,7 @@ const Body = () => {
 
       <ChangeUserName/>
       </userContext.Provider>
+
     </>
   );
 };
