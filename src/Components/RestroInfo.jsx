@@ -55,7 +55,7 @@ const RestroInfo = () => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
 
       <div className="restro-info">
         <h1 className="title">{res.name}</h1>

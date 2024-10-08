@@ -6,6 +6,7 @@ import cartSlice from './Slices/cartSlice';
 const appStore = configureStore({
     // idr alg alg component ki slices hongi
     reducer : {
+        // yaha diff diff slices add honge
         cart : cartSlice,
     }
 });

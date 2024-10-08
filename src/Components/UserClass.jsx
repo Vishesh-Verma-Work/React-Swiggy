@@ -45,7 +45,7 @@ class UserClass extends React.Component {
       this.state.info;
     return (
       <>
-        <Header />
+        {/* <Header /> */}
         <div className="main">
           <div className="user-profile">
             <div className="profile-card">

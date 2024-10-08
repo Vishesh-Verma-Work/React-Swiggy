@@ -4,7 +4,7 @@ import Header from "./Header";
 const Grocery = ()=>{
     return(
         <>
-        <Header/>
+        {/* <Header/> */}
         <h1>This is another big app, added the concept of, on demand loading/lazy loading</h1>
         </>
     )

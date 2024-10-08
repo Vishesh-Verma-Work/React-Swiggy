@@ -5,7 +5,7 @@ const Offer = () => {
     
   return (
     <>
-    <Header/>
+    {/* <Header/> */}
     <div>
         <h1>This is the Offer page </h1>
     </div>

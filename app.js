@@ -10,7 +10,6 @@ import Header from "./src/Components/Header";
 import Cards  from "./src/Components/Cards";
 import Offer from "./src/Components/Offer";
 import Line from "./src/Components/Line";
-import useOnlineStatus from "./src/utils/Hooks/useOnlineStatus";
 import Error from "./src/Components/Error";
 import Contact from "./src/Components/Contact";
 import ChangeUserName from "./src/Components/ChangeUserName";
@@ -96,19 +95,17 @@ const Body = () => {
     
   }
 
-  const checkStatus = useOnlineStatus;
-  
-  if(checkStatus === false){
-    return(
-      <h1>This is on</h1>
-    )
-  }
 
 
   if (dummyList.length === 0) {
     return (
       <>
+       <Provider store={appStore}>
+       <userContext.Provider value={{logedInUser : authName, setAuthName}}>
         <Header />
+        </userContext.Provider>
+        </Provider>
+        
         <Outlet/>
         <Line />
         <ShimmerCard/>
@@ -166,6 +163,8 @@ const Body = () => {
         ))}
       </div>
 
+      <Outlet/>
+
       <ChangeUserName/>
       </userContext.Provider>
       </Provider>
@@ -203,44 +202,43 @@ const Body = () => {
 // ]);
 
 const appRouter = createBrowserRouter([
-  {
-    path : "/",
-    element : <Body/>,
-    errorElement : <Error/>,
-  },
-      {
-        path : "/offer",
-        element : <Offer/>,
-        errorElement : <Error/>
-      },
-      {
-        path : "/order",
-        element : <Order/>,
-        errorElement : <Error/>
-      },
-      {
-        path : "/contact",
-        element : <Contact/>,
-        errorElement : <Error/>
-      },
-      {
-        path : "/restro/:resID",
-        element : <RestroInfo/>,
-        // errorElement : <Error/>
-      },
-      {
-        path : "/user",
-        element : <UserClass name={"Vishesh Verma"} branch={"CS"} year={"3rd"}/>,
-        errorElement : <Error/>
-      },
-      {
-        path : "/grocery",
-        element : <Suspense fallback={<><ShimmerCard/></>}><Grocery/></Suspense>,
-        // errorElement : <Error/>
-      }
-  
- 
-]);
+
+    {
+      path : "/",
+      element : <Body/>,
+      errorElement : <Error/>,
+    },
+        {
+          path : "/offer",
+          element : <Offer/>,
+          errorElement : <Error/>
+        },
+        {
+          path : "/order",
+          element : <Order/>,
+          errorElement : <Error/>
+        },
+        {
+          path : "/contact",
+          element : <Contact/>,
+          errorElement : <Error/>
+        },
+        {
+          path : "/restro/:resID",
+          element : <RestroInfo/>,
+          // errorElement : <Error/>
+        },
+        {
+          path : "/user",
+          element : <UserClass name={"Vishesh Verma"} branch={"CS"} year={"3rd"}/>,
+          errorElement : <Error/>
+        },
+        {
+          path : "/grocery",
+          element : <Suspense fallback={<><ShimmerCard/></>}><Grocery/></Suspense>,
+          // errorElement : <Error/>
+        }
+  ]);
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

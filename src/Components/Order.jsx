@@ -4,7 +4,7 @@ import Header from './Header'
 const Order = () => {
   return (
     <>
-    <Header/>
+    {/* <Header/> */}
     <div>
       <h1>This is order page</h1>
     </div>
