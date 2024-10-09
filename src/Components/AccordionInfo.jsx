@@ -1,7 +1,13 @@
+import { useDispatch } from "react-redux";
 import "../styles/accordionInfo.css"
+import { addItem } from "../utils/ReduxStore/Slices/cartSlice";
 import { img as IMG } from "../utils/Hard Coded Data/URL";
 function AccordionInfo({data}) {
-    // console.log(data)
+  
+  const dispatch = useDispatch()
+  const dispatchItem = (name)=>{
+    dispatch(addItem(name));
+  }
   return (
     <div>
       {
@@ -18,6 +24,7 @@ function AccordionInfo({data}) {
                 </div>
                 <div className="acc-right">
                     <img src={IMG + imageId} alt="img" />
+                    <button onClick={() => dispatchItem(name)} >Add</button>
                 </div>
                 </div>
 

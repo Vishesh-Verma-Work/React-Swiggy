@@ -106,7 +106,7 @@ const Body = () => {
         </userContext.Provider>
         </Provider>
         
-        <Outlet/>
+        {/* <Outlet/> */}
         <Line />
         <ShimmerCard/>
       </>
@@ -119,7 +119,7 @@ const Body = () => {
     <Provider store={appStore}>
     <userContext.Provider value={{logedInUser : authName, setAuthName}}>
       <Header />
-      {/* <Outlet/> */}
+      <Outlet/>
       
       <div className="mn">
         <div className="srch">
@@ -175,70 +175,86 @@ const Body = () => {
 
 }
 
-// const appRouter = createBrowserRouter([
-//   {
-//     path : "/",
-//     element : <Body/>,
-//     errorElement : <Error/>,
-//     children : [
-//       {
-//         path : "/offer",
-//         element : <Offer/>,
-//         errorElement : <Error/>
-//       },
-//       {
-//         path : "/order",
-//         element : <Order/>,
-//         errorElement : <Error/>
-//       },
-//       {
-//         path : "/contact",
-//         element : <Contact/>,
-//         errorElement : <Error/>
-//       },
-//     ]
-//   }
- 
-// ]);
-
 const appRouter = createBrowserRouter([
+  {
+    path : "/",
+    element : <Body/>,
+    errorElement : <Error/>,
+    children : [
+      {
+        path : "/offer",
+        element : <Offer/>,
+        errorElement : <Error/>
+      },
+      {
+        path : "/order",
+        element : <Order/>,
+        errorElement : <Error/>
+      },
+      {
+        path : "/contact",
+        element : <Contact/>,
+        errorElement : <Error/>
+      },
+      
+      {
+        path : "/restro/:resID",
+        element : <RestroInfo/>,
+        // errorElement : <Error/>
+      },
+      {
+        path : "/user",
+        element : <UserClass name={"Vishesh Verma"} branch={"CS"} year={"3rd"}/>,
+        errorElement : <Error/>
+      },
+      {
+        path : "/grocery",
+        element : <Suspense fallback={<><ShimmerCard/></>}><Grocery/></Suspense>,
+        // errorElement : <Error/>
+      }
+    ]
+  }
+ 
+]);
 
-    {
-      path : "/",
-      element : <Body/>,
-      errorElement : <Error/>,
-    },
-        {
-          path : "/offer",
-          element : <Offer/>,
-          errorElement : <Error/>
-        },
-        {
-          path : "/order",
-          element : <Order/>,
-          errorElement : <Error/>
-        },
-        {
-          path : "/contact",
-          element : <Contact/>,
-          errorElement : <Error/>
-        },
-        {
-          path : "/restro/:resID",
-          element : <RestroInfo/>,
-          // errorElement : <Error/>
-        },
-        {
-          path : "/user",
-          element : <UserClass name={"Vishesh Verma"} branch={"CS"} year={"3rd"}/>,
-          errorElement : <Error/>
-        },
-        {
-          path : "/grocery",
-          element : <Suspense fallback={<><ShimmerCard/></>}><Grocery/></Suspense>,
-          // errorElement : <Error/>
-        }
-  ]);
+// const appRouter = createBrowserRouter([
+
+//     {
+//       path : "/",
+//       element : <Body/>,
+//       errorElement : <Error/>,
+//     },
+//         {
+//           path : "/offer",
+//           element : <Offer/>,
+//           errorElement : <Error/>
+//         },
+//         {
+//           path : "/order",
+//           element : <Order/>,
+//           errorElement : <Error/>
+//         },
+//         {
+//           path : "/contact",
+//           element : <Contact/>,
+//           errorElement : <Error/>
+//         },
+//         {
+//           path : "/restro/:resID",
+//           element : <RestroInfo/>,
+//           // errorElement : <Error/>
+//         },
+//         {
+//           path : "/user",
+//           element : <UserClass name={"Vishesh Verma"} branch={"CS"} year={"3rd"}/>,
+//           errorElement : <Error/>
+//         },
+//         {
+//           path : "/grocery",
+//           element : <Suspense fallback={<><ShimmerCard/></>}><Grocery/></Suspense>,
+//           // errorElement : <Error/>
+//         }
+//   ]);
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

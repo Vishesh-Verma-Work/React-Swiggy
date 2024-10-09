@@ -16,6 +16,7 @@ const Header = () => {
   const cartItems = useSelector((store) => {
     return store.cart.items;
   });
+  console.log(cartItems);
 
   return (
     <>
