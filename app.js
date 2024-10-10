@@ -17,6 +17,7 @@ import Order from "./src/Components/Order";
 import ShimmerCard from "./src/Components/ShimmerCard";
 import UserClass from './src/Components/UserClass';
 import RestroInfo from "./src/Components/RestroInfo";
+import Cart from "./src/Components/Cart";
 
 // css imports
 import "./src/styles/header.css";
@@ -211,6 +212,11 @@ const appRouter = createBrowserRouter([
         path : "/grocery",
         element : <Suspense fallback={<><ShimmerCard/></>}><Grocery/></Suspense>,
         // errorElement : <Error/>
+      },
+      {
+        path : "/Cart",
+        element : <Cart/>,
+        errorElement : <Error/>
       }
     ]
   }

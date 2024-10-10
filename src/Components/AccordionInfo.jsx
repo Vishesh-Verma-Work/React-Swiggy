@@ -1,13 +1,17 @@
 import { useDispatch } from "react-redux";
 import "../styles/accordionInfo.css"
-import { addItem } from "../utils/ReduxStore/Slices/cartSlice";
-import { img as IMG } from "../utils/Hard Coded Data/URL";
+import { addItem, removeItem } from "../utils/ReduxStore/Slices/cartSlice";
+import { img as IMG } from "../utils/Hard Coded Data/URL"
+
 function AccordionInfo({data}) {
-  
   const dispatch = useDispatch()
-  const dispatchItem = (name)=>{
-    dispatch(addItem(name));
+  const dispatchItem = (data)=>{
+    dispatch(addItem(data));
   }
+  const dispatchRemove = (data)=>{
+    dispatch(removeItem(data))
+  }
+
   return (
     <div>
       {
@@ -20,11 +24,12 @@ function AccordionInfo({data}) {
                     <div className="acc-title">{name}</div>
                     <div className="acc-price">₹{price/100}</div>
                     <div className="acc-rating">{ratings.aggregatedRating.rating}</div>
-                    <div className="acc-desc">{description.substring(11,)}</div>
+                    <div className="acc-desc">{description.substring(11)}</div>
                 </div>
                 <div className="acc-right">
                     <img src={IMG + imageId} alt="img" />
-                    <button onClick={() => dispatchItem(name)} >Add</button>
+                    <button onClick={() => dispatchItem(data)} >Add</button>
+                    <button onClick={() => dispatchRemove(data)} >remove</button>
                 </div>
                 </div>
 
